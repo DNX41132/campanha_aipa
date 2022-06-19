@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Animais para Adoção
+{% endblock title %}
+{% block content %}
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Ordenar</h3>
+    </div>
+</div>
+<div class="panel-body">
+    <form method="get">
+        <div class="btn-group" role="group">
+            {% with cat=request.GET.ordenar %}
+            <button type="submit" class="btn btn-default
+          {% if cat == 'entrada' %} disabled {% endif %}"
+                    name="ordenar" value="entrada">Mais antigos
+            </button>
+            <button type="submit" class="btn btn-default
+          {% if cat == '-entrada' %} disabled {% endif %}"
+                    name="ordenar" value="-entrada">Mais novos
+            </button>
+            {% endwith %}
+        </div>
+    </form>
+</div>
+<br>
+<div class="row">
+    {% for animal in lista %}
+    <div class="col-4">
+        <div class="img-thumbnail">
+            <a href="{% url 'perfil_animal' pk=animal.pk %}">
+                <figure class="figure">
+                    <img class="figure-img img-fluid rounded" src="{{animal.foto_animal.url}}"
+                         style="width:400px; height:400px;">
+                </figure>
+                <figcaption class="figure-caption text-center">{{animal.tipo}} - {{animal.entrada}} -
+                    {{animal.nome}}
+                </figcaption>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="pagination py-2">
+     <span class="step-links">
+         {% if lista.has_previous %}
+            <a href="?page={{ lista.previous_page_number }}">anterior</a>
+         {% endif %}
+         <span class="current">
+             Página {{ lista.number }} de {{ lista.paginator.num_pages }}.
+         </span>
+          {% if lista.has_next %}
+             <a href="?page={{ lista.next_page_number }}">próxima</a>
+         {% endif %}
+     </span>
+</div>
+{% endblock content %}

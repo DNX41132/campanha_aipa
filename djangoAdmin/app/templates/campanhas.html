@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Campanhas
+{% endblock title %}
+{% block content %}
+    <form method="get">
+        <div class="col">
+            <div class="input-group mb-3 ">
+                <input type="text" class="form-control" name="busca" placeholder="Buscar Campanha">
+                <span class="input-group-btn">
+                    <button class="btn btn-light" type="submit"> Pesquisar </button>
+                </span>
+            </div>
+        </div>
+    </form>
+<br>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Ordenar</h3>
+    </div>
+</div>
+<div class="panel-body">
+    <form method="get">
+        <div class="btn-group" role="group">
+            {% with cat=request.GET.ordenar %}
+        <button type="submit" class="btn btn-default
+          {% if cat == 'data_evento' %} disabled {% endif %}"
+          name="ordenar" value="data_evento">Mais antigos</button>
+        <button type="submit" class="btn btn-default
+          {% if cat == '-data_evento' %} disabled {% endif %}"
+          name="ordenar" value="-data_evento">Mais novos</button>
+    {% endwith %}
+        </div>
+    </form>
+</div>
+<br>
+<div class="row">
+    {% for campanha in lista %}
+    <div class="col-6">
+        <div class="img-thumbnail">
+            <a href="{% url 'campanha_view' pk=campanha.pk %}">
+                <figure class="figure">
+                    <img class="figure-img img-fluid rounded" src="{{campanha.imagem_campanha.url}}"
+                         style="width:600px; height:400px;">
+                </figure>
+                <figcaption class="figure-caption text-center">{{campanha.titulo}} - {{campanha.data_evento}}
+                </figcaption>
+            </a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<div class="pagination py-2">
+     <span class="step-links">
+         {% if lista.has_previous %}
+            <a href="?page={{ lista.previous_page_number }}">anterior</a>
+         {% endif %}
+         <span class="current">
+             Página {{ lista.number }} de {{ lista.paginator.num_pages }}.
+         </span>
+          {% if lista.has_next %}
+             <a href="?page={{ lista.next_page_number }}">próxima</a>
+         {% endif %}
+     </span>
+</div>
+{% endblock content %}

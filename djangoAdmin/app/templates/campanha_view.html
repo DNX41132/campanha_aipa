@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Campanha Detalhes
+{% endblock title %}
+{% block content %}
+<div class="row">
+    <div class="col-4">
+        <div class="img-thumbnail">
+            <img src="{{campanha.foto_capa.url}}" style="width:400px height:400px">
+        </div>
+    </div>
+    <div class="col-8">
+        <ul class="list-group">
+            <li class="list-group-item">Titulo: {{campanha.titulo}}</li>
+            <li class="list-group-item">Data do Evento: {{campanha.data_evento}}</li>
+            <li class="list-group-item">Local do Evento: {{campanha.local_evento}}</li>
+            <li class="list-group-item">Texto: {{campanha.texto}}</li>
+        </ul>
+    </div>
+</div>
+{% endblock content %}

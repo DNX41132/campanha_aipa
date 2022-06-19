@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Perfil do Animal
+{% endblock title %}
+{% block content %}
+<div class="row">
+    <div class="col-4">
+        <div class="img-thumbnail">
+            <img src="{{animal.foto_animal.url}}" style="width:100%">
+        </div>
+    </div>
+    <div class="col-8">
+        <ul class="list-group">
+            <li class="list-group-item">Tipo: {{animal.tipo}}</li>
+            <li class="list-group-item">Nome: {{animal.nome}}</li>
+            <li class="list-group-item">Entrada: {{animal.entrada}}</li>
+            <li class="list-group-item">Sexo: {{animal.sexo}}</li>
+            <li class="list-group-item">Porte: {{animal.prote}}</li>
+            <li class="list-group-item">Raça: {{animal.raca}}</li>
+            <li class="list-group-item">Vacinas: {{animal.vacinas}}</li>
+        </ul>
+    </div>
+</div>
+<br>
+<div></div>
+<br>
+<br>
+<div></div>
+<br>
+<br>
+<div></div>
+<br>
+<br>
+<br>
+<br>
+<span></span>
+{% endblock content %}

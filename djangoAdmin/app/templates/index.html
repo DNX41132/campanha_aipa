@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Inicio
+{% endblock title %}
+{% block content %}
+<div class="jumbotron">
+  <h1>Conheça a AAIPA</h1>
+  <p class="lead">Conheça nossa história, missão e valores</p>
+  <a class="btn btn-lg btn-primary" href="sobre" role="button">Sobre »</a>
+</div>
+<br>
+<div class="jumbotron">
+  <h1>Ajude nossa causa!</h1>
+  <p class="lead">Precisamos do seu apoio!
+    Existem várias formas de nos ajudar da um conferida na página </p>
+  <a class="btn btn-lg btn-primary" href="apoie" role="button">Apoie »</a>
+</div>
+<br>
+<div class="jumbotron">
+  <h1>Adoção</h1>
+  <p class="lead">Conheças os nosso preciosos amigos que precisam muito de um lar e muito amor!</p>
+  <a class="btn btn-lg btn-primary" href="adocao" role="button">Adoção »</a>
+</div>
+<br>
+<div id="carouselExampleInterval" class="carousel slide" data-ride="carousel" style="width: 1100px; height: 250px">
+  <div class="carousel-inner">
+    <div class="carousel-item active" data-interval="5000">
+      <img src="{% static 'imagens\img\imagem1.jpg' %}" class="d-block w-40" alt="..." style="width: 1100px; height: 250px">
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <img src="{% static 'imagens\img\imagem2.jpg' %}" class="d-block w-40" alt="..." style="width: 1100px; height: 250px">
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <img src="{% static 'imagens\img\imagem3.jpg' %}" class="d-block w-40" alt="..." style="width: 1100px; height: 250px">
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <img src="{% static 'imagens\img\imagem4.jpg' %}" class="d-block w-40" alt="..." style="width: 1100px; height: 250px">
+    </div>
+    <div class="carousel-item" data-interval="5000">
+      <img src="{% static 'imagens\img\imagem5.jpg' %}" class="d-block w-40" alt="..." style="width: 1100px; height: 250px">
+    </div>
+    <div class="carousel-item" >
+      <img src="{% static 'imagens\img\imagem6.jpg' %}" class="d-block w-40" alt="..." style="width: 1100px; height: 250px">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-target="#carouselExampleInterval" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-target="#carouselExampleInterval" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </button>
+</div>
+<br>
+<div class="jumbotron">
+  <h1>Campanhas</h1>
+  <p class="lead">Acompanhe nossas campanhas e os movimentos que estamos promovendo</p>
+  <a class="btn btn-lg btn-primary" href="campanhas" role="button">Campanhas »</a>
+</div>
+{% endblock content %}
