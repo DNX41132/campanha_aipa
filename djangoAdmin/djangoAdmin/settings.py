@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'aaipaAdmin',
         'USER': 'root',
-        'PASSWORD': 'Spinel.2678',
+        'PASSWORD': '****',
         'HOST': 'localhost',
         'PORT': '3306'
     }
